@@ -1,0 +1,10 @@
+{
+	"id": "tooltip-note",
+	"name": "Tooltip Note",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "A personal tooltip that can be easily looked-up from within your notes",
+	"author": "Phuoc Huynh",
+	"authorUrl": "https://github.com/hnp180493",
+	"isDesktopOnly": false
+}

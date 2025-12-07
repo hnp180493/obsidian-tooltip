@@ -1,0 +1,277 @@
+/* Definition underline styling */
+.definition-underline {
+	text-decoration: underline dotted;
+	text-decoration-color: var(--definition-underline-color, var(--text-accent));
+	text-decoration-thickness: 1.5px;
+	text-underline-offset: 2px;
+	cursor: help;
+	transition: text-decoration-color 0.2s ease;
+}
+
+.definition-underline:hover {
+	text-decoration-color: var(--definition-underline-color, var(--text-accent-hover));
+}
+
+/* Definition popover styling */
+.definition-popover {
+	position: fixed;
+	max-width: 400px;
+	min-width: 200px;
+	padding: 12px 16px;
+	background: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	z-index: 1000;
+	font-size: var(--font-ui-small);
+	line-height: 1.5;
+}
+
+.theme-dark .definition-popover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.definition-popover-header {
+	margin-bottom: 8px;
+	font-size: var(--font-ui-medium);
+	color: var(--text-normal);
+}
+
+.definition-popover-header strong {
+	color: var(--text-accent);
+	font-weight: 600;
+}
+
+.definition-popover-aliases {
+	margin-bottom: 8px;
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+}
+
+.definition-popover-content {
+	color: var(--text-normal);
+	margin-top: 8px;
+	padding-top: 8px;
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+.definition-popover-content p {
+	margin: 0.5em 0;
+}
+
+.definition-popover-content p:first-child {
+	margin-top: 0;
+}
+
+.definition-popover-content p:last-child {
+	margin-bottom: 0;
+}
+
+.definition-popover-content ul,
+.definition-popover-content ol {
+	margin: 0.5em 0;
+	padding-left: 0;
+}
+
+.definition-popover-content code {
+	background: var(--background-primary-alt);
+	padding: 2px 4px;
+	border-radius: 3px;
+	font-size: 0.9em;
+}
+
+.definition-popover-content strong {
+	font-weight: 600;
+}
+
+.definition-popover-content em {
+	font-style: italic;
+}
+
+/* Modal styling enhancements */
+.modal.definition-modal {
+	max-width: 600px;
+}
+
+.modal.definition-modal .modal-content {
+	padding: 20px;
+}
+
+.modal.definition-modal textarea {
+	font-family: var(--font-text);
+	font-size: var(--font-ui-small);
+	line-height: 1.5;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	background: var(--background-primary);
+	color: var(--text-normal);
+}
+
+.modal.definition-modal textarea:focus {
+	border-color: var(--interactive-accent);
+	outline: none;
+}
+
+/* Settings tab styling */
+.note-definitions-settings h2 {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	color: var(--text-accent);
+}
+
+/* Accessibility improvements */
+.definition-underline:focus {
+	outline: 2px solid var(--interactive-accent);
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+	.definition-underline {
+		text-decoration-thickness: 2px;
+		text-decoration-color: var(--text-normal);
+	}
+	
+	.definition-popover {
+		border-width: 2px;
+	}
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+	.definition-underline {
+		transition: none;
+	}
+}
+
+/* Definition folder highlight in file explorer */
+.nav-folder.definition-folder > .nav-folder-title {
+	background-color: var(--background-modifier-hover);
+	border-left: 3px solid var(--text-accent);
+	padding-left: calc(var(--size-4-1) - 3px);
+}
+
+.nav-folder.definition-folder > .nav-folder-title .nav-folder-title-content::after {
+	content: " 📚";
+	font-size: 0.9em;
+	opacity: 0.7;
+}
+
+.theme-dark .nav-folder.definition-folder > .nav-folder-title {
+	background-color: rgba(var(--color-accent-rgb), 0.1);
+}
+
+/* Definition file highlight in file explorer */
+.nav-file.definition-file .nav-file-title-content::after {
+	content: "DEF";
+	margin-left: 6px;
+	padding: 1px 5px;
+	font-size: 0.7em;
+	font-weight: 600;
+	color: var(--text-on-accent);
+	background-color: var(--text-accent);
+	border-radius: 3px;
+	opacity: 0.85;
+	letter-spacing: 0.5px;
+}
+
+.nav-file.definition-file:hover .nav-file-title-content::after {
+	opacity: 1;
+}
+
+/* Usages popover styling */
+.definition-popover-usages {
+	max-width: 600px;
+	max-height: 500px;
+	overflow-y: auto;
+}
+
+.definition-popover-loading {
+	color: var(--text-muted);
+	font-style: italic;
+	padding: 8px 0;
+}
+
+.definition-popover-no-usages {
+	color: var(--text-muted);
+	font-style: italic;
+	padding: 8px 0;
+}
+
+.definition-popover-usage-list {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.definition-popover-usage-item {
+	padding: 8px;
+	background: var(--background-secondary);
+	border-radius: 4px;
+	border-left: 3px solid var(--text-accent);
+	transition: background-color 0.2s ease;
+}
+
+.definition-popover-usage-item:hover {
+	background: var(--background-modifier-hover);
+}
+
+.definition-popover-usage-file {
+	display: block;
+	font-size: var(--font-ui-smaller);
+	color: var(--text-accent);
+	font-weight: 600;
+	margin-bottom: 4px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.definition-popover-usage-file:hover {
+	text-decoration: underline;
+}
+
+.definition-popover-usage-text {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-normal);
+	line-height: 1.5;
+	margin-top: 4px;
+}
+
+.definition-popover-usage-text p {
+	margin: 0;
+	word-break: break-word;
+}
+
+.definition-popover-usage-text strong {
+	font-weight: 600;
+	color: var(--text-accent);
+}
+
+.definition-popover-usage-text em {
+	font-style: italic;
+}
+
+.definition-popover-usage-text code {
+	background: var(--background-primary);
+	padding: 2px 4px;
+	border-radius: 3px;
+	font-size: 0.9em;
+	font-family: var(--font-monospace);
+}
+
+.definition-popover-usage-text a {
+	color: var(--text-accent);
+	text-decoration: none;
+}
+
+.definition-popover-usage-text a:hover {
+	text-decoration: underline;
+}
+
+
+.definition-popover-usage-text .contains-task-list .task-list-item {
+	input[type="checkbox"] {
+		display: none;
+	}
+}
