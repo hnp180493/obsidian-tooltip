@@ -105,14 +105,13 @@ export class DefinitionManager {
 		const folder = this.plugin.app.vault.getAbstractFileByPath(this.plugin.settings.definitionFolder);
 		
 		if (!folder) {
-			console.error('[Note Definitions] ❌ Folder not found:', this.plugin.settings.definitionFolder);
-			console.error('[Note Definitions] Make sure the folder exists in your vault');
+			// Folder not found
 			new Notice(`Definition folder "${this.plugin.settings.definitionFolder}" not found!`);
 			return;
 		}
 		
 		if (!(folder instanceof TFolder)) {
-			console.error('[Note Definitions] ❌ Path is not a folder:', this.plugin.settings.definitionFolder);
+			// Path is not a folder
 			new Notice(`"${this.plugin.settings.definitionFolder}" is not a folder!`);
 			return;
 		}
@@ -159,7 +158,7 @@ export class DefinitionManager {
 				this.addToCache(def);
 			}
 		} catch (error) {
-			console.error(`[Note Definitions] ❌ Failed to load definition file ${file.path}:`, error);
+			// Failed to load definition file
 		}
 	}
 
@@ -197,7 +196,7 @@ export class DefinitionManager {
 				}
 			}
 		} catch (error) {
-			console.warn('Failed to parse frontmatter:', error);
+			// Failed to parse frontmatter
 		}
 
 		// Default to consolidated for backward compatibility
@@ -236,7 +235,6 @@ export class DefinitionManager {
 			await this.refreshDefinitions();
 		} catch (error) {
 			new Notice('Failed to register definition file');
-			console.error(error);
 		}
 	}
 
@@ -365,7 +363,7 @@ export class DefinitionManager {
 					regex.lastIndex = 0;
 				}
 			} catch (error) {
-				console.error(`Failed to read file ${file.path}:`, error);
+				// Failed to read file
 			}
 		}
 

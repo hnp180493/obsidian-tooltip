@@ -49,7 +49,7 @@ export class AtomicParser {
 				}
 			}
 		} catch (error) {
-			console.warn('Failed to parse frontmatter aliases:', error);
+			// Failed to parse frontmatter aliases
 		}
 
 		return [];

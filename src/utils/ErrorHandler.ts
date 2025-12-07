@@ -7,11 +7,11 @@ export class ErrorHandler {
 	 */
 	static handle(error: DefinitionError | Error): void {
 		if (error instanceof DefinitionError) {
-			console.error(`[Note Definitions] ${error.type}:`, error.message, error.context);
+			// Error: ${error.type} - ${error.message}
 			new Notice(this.getUserMessage(error));
 			this.attemptRecovery(error);
 		} else {
-			console.error('[Note Definitions] Unexpected error:', error);
+			// Unexpected error occurred
 			new Notice('An unexpected error occurred');
 		}
 	}

@@ -173,7 +173,7 @@ export class UIManager {
 			await this.plugin.app.vault.create(filePath, content);
 			return filePath;
 		} catch (error) {
-			console.error('Failed to create definition file:', error);
+			// Failed to create definition file
 			return '';
 		}
 	}
@@ -353,7 +353,6 @@ export class UIManager {
 			}
 		} catch (error) {
 			new Notice('Failed to add context');
-			console.error(error);
 		}
 	}
 
@@ -470,7 +469,6 @@ export class UIManager {
 			new Notice('Definition updated');
 		} catch (error) {
 			new Notice('Failed to update definition');
-			console.error(error);
 		}
 	}
 
@@ -498,7 +496,6 @@ export class UIManager {
 			new Notice('Definition deleted');
 		} catch (error) {
 			new Notice('Failed to delete definition');
-			console.error(error);
 		}
 	}
 
